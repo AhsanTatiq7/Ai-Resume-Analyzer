@@ -1,0 +1,4 @@
+/* App-level resets — page-specific styles live in components */
+.App {
+  text-align: center;
+}

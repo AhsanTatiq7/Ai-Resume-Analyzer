@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root { min-height: 100%; background: #03040a; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #03040a;
+  color: #f0f4ff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+html { scroll-behavior: smooth; }
+
+::selection { background: #00d4ff; color: #000; }
+
+input, button, textarea, label { outline: none; font-family: 'DM Sans', sans-serif; }
+
+a { color: inherit; text-decoration: none; }
+
+::-webkit-scrollbar              { width: 5px; }
+::-webkit-scrollbar-track        { background: #03040a; }
+::-webkit-scrollbar-thumb        { background: rgba(0,212,255,0.18); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover  { background: #00d4ff; }
+
+/* ── Animations ── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.4; }
+}
+
+/* ══════════════════════════════════════
+   MOBILE RESPONSIVENESS
+   ══════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── SHARED ── */
+  html, body { overflow-x: hidden; }
+
+  /* ── HOME PAGE ── */
+  nav, .navbar {
+    padding: 16px 20px !important;
+  }
+
+  /* hide nav links on mobile, keep logo + button */
+  nav > div:nth-child(2) {
+    display: none !important;
+  }
+
+  /* hero stacks vertically */
+  section {
+    flex-direction: column !important;
+    padding: 60px 20px 40px !important;
+    gap: 40px !important;
+  }
+
+  /* hero title smaller */
+  h1 {
+    font-size: clamp(36px, 8vw, 52px) !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  /* hero card full width */
+  div[style*="flex: \"0 0 320px\""] {
+    flex: unset !important;
+    width: 100% !important;
+  }
+
+  /* stats bar stacks */
+  div[style*="\"26px 44px\""] {
+    flex-wrap: wrap !important;
+    padding: 20px !important;
+    gap: 16px !important;
+  }
+
+  /* feature grid single column */
+  div[style*="minmax(260px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* steps grid single column */
+  div[style*="minmax(220px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CTA section */
+  div[style*="\"72px 48px\""] {
+    padding: 40px 24px !important;
+  }
+
+  /* footer */
+  footer {
+    padding: 24px 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* ── UPLOAD PAGE ── */
+  div[style*="maxWidth: 520"] {
+    max-width: 100% !important;
+    padding: 0 4px !important;
+  }
+}
+
+@media (max-width: 900px) {
+
+  /* ── DASHBOARD ── */
+
+  /* row3 — 3 cols → 1 col on mobile */
+  div[style*="repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* row2 — 2 cols → 1 col on mobile */
+  div[style*="repeat(2, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* topbar */
+  header {
+    padding: 14px 16px !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  /* main padding */
+  main {
+    padding: 16px 14px 40px !important;
+  }
+
+  /* score arc smaller */
+  svg[width="176"] {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  /* insights grid — stack on mobile */
+  div[style*="\"1fr auto\""] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* insight stats — 2x2 grid stays fine */
+  div[style*="minWidth: 200"] {
+    min-width: unset !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* ── HISTORY PAGE ── */
+  main {
+    padding: 20px 14px 40px !important;
+  }
+
+  /* history card row wraps */
+  div[style*="cardRow"] {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  /* page header stacks */
+  div[style*="pageHeader"] {
+    flex-direction: column !important;
+  }
+
+  /* summary chips wrap */
+  div[style*="summaryChips"] {
+    flex-wrap: wrap !important;
+  }
+
+  /* expanded content single col */
+  div[style*="expandedContent"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* topbar score pill hidden on very small */
+  div[style*="scorePill"] {
+    display: none !important;
+  }
+}
+
+/* ── Extra small screens ── */
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 34px !important;
+  }
+
+  /* nav button smaller */
+  button {
+    font-size: 12px !important;
+    padding: 8px 14px !important;
+  }
+
+  /* tag clouds wrap tighter */
+  span[style*="greenTag"], span[style*="redTag"] {
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+  }
+
+  /* filter tabs in skill gaps */
+  div[style*="tabBtn"] {
+    font-size: 10px !important;
+    padding: 3px 7px !important;
+  }
+}
